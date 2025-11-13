@@ -6,7 +6,7 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:25:00 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/13 11:52:38 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/13 12:02:33 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 {
 	int	test;
 
-	test = ft_printf("%%", "123");
+	test = ft_printf("%%", "-123");
 	printf("\n%d\n", test);
 	return (test);
 }
