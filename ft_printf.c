@@ -6,7 +6,7 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:25:00 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/13 12:40:20 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/14 11:57:40 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 static char	conv_check(const char *conv)
 {
-	size_t	i;
-
-	i = 0;
 	while(*conv != '%')
 		*conv++;
 	*conv++;
@@ -38,8 +35,24 @@ int	ft_printf(const char *conv, char *print)
 		return (NULL);
 	if (check  == '%')
 		return (ft_putchar(check));
-	if (conv[0] == '%' && (conv[1] == 'd' || conv[1] == 'i') && conv[2] == '\0')
+	if (check == 's')
 		return(ft_putstr(print));
+	if (check == 'c')
+	{
+		if (ft_strlen(print) == 1)
+			return (ft_putchar((const char)print[0]));
+		else
+			return (NULL);
+	}
+	if (check == 'd')
+		return (ft_putstr(ft_itoa(print)));
+	if (check == 'i')
+	{
+		if(print >= 0)
+			return (ft_putstr(ft_itoa(print)));
+		else
+			return (NULL);
+	}
 	(void)print;
 	return (0);
 }
@@ -48,7 +61,7 @@ int	main(void)
 {
 	int	test;
 
-	test = ft_printf("%i", "-123");
+	test = ft_printf("\nsdfsdfsd%diiii", "qwe");
 	printf("\n%d\n", test);
 	return (test);
 }

@@ -16,12 +16,14 @@
 // libs
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 // custom functions
 int		ft_printf(const char *conv, char *print);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		ft_putnbr(int n);
-//int		*ft_itoa(int n);
+size_t	ft_strlen(const char *s);
+char	*ft_itoa(int n);
 
 #endif

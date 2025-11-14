@@ -30,7 +30,7 @@ static int	ft_len(long n)
 	return (i);
 }
 
-int	*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*ret;
 	int		i;
@@ -54,5 +54,5 @@ int	*ft_itoa(int n)
 		ret[--i] = (nb % 10) + '0';
 		nb /= 10;
 	}
-	return (ft_putstr(ret));
+	return (ret);
 }
