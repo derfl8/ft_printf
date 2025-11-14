@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 18:38:30 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/13 10:06:11 by abegou           ###   ########.fr       */
+/*   Created: 2025/10/18 13:08:44 by abegou            #+#    #+#             */
+/*   Updated: 2025/11/14 14:13:23 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_putstr(char *s)
-{
-	unsigned int	i;
+// libs
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
-}
+// custom functions
+int		ft_printf(const char *conv, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr(int n);
+size_t	ft_strlen(const char *s);
+char	*ft_itoa(int n);
+
+#endif

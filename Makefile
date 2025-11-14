@@ -1,7 +1,7 @@
 CC      = cc
-CFLAGS  = -Wall -Wextra -Werror	
+CFLAGS  = 
 NAME    = libftprintf.a
-HEADER  = libftprintf.h
+HEADER  = ft_printf.h
 
 SRCS    = \
 ft_printf.c \
