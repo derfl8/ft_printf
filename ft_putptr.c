@@ -6,13 +6,13 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:34:42 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/17 18:38:01 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 21:08:50 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(long long int ptr)
+int	ft_putptr(unsigned long long ptr)
 {
 	int	len;
 

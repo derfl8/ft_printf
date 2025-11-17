@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_puthexh(int n)
+int	ft_puthexh(unsigned int n)
 {
 	unsigned int	i;
 

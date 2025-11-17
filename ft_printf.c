@@ -6,7 +6,7 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:25:00 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/17 20:02:05 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 21:09:33 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static int	format_check(const char format, va_list(args))
 	else if (format == 'u')
 		len += ft_putnbr(va_arg(args, unsigned int));
 	else if (format == 'x')
-		len += ft_puthexl(va_arg(args, int));
+		len += ft_puthexl(va_arg(args, unsigned int));
 	else if (format == 'X')
-		len += ft_puthexh(va_arg(args, int));
+		len += ft_puthexh(va_arg(args, unsigned int));
 	else if (format == 'p')
-		len += ft_putptr(va_arg(args, long long int));
+		len += ft_putptr(va_arg(args, void *));
 	return (len);
 }
 
@@ -67,15 +67,12 @@ int	ft_printf(const char *format, ...)
 			len += format_check(format[i + 1], args);
 			i += 2;
 		}
-		ft_putchar(format[i]);
-		i++;
-		len++;
+		else
+		{
+			len += ft_putchar(format[i]);
+			i++;
+		}
 	}
 	va_end(args);
 	return (len);
 }
-/*
-int	main(void)
-{
-	ft_printf("\n%c%c\n", '0', '7');
-}*/
