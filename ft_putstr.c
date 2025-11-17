@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 18:38:30 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/13 10:06:11 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 19:23:52 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int	ft_putstr(char *s)
 {
 	unsigned int	i;
 
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (s[i])
 	{

@@ -6,12 +6,11 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:25:00 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/17 18:58:55 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 20:02:05 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	ft_try(int n)
 {
@@ -75,3 +74,8 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+/*
+int	main(void)
+{
+	ft_printf("\n%c%c\n", '0', '7');
+}*/
