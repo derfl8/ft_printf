@@ -22,7 +22,7 @@
 int		ft_printf(const char *conv, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
-int		ft_putnbr(int n);
+int		ft_putnbr(unsigned int n);
 size_t	ft_strlen(const char *s);
 char	*ft_itoa(int n);
 

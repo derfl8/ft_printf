@@ -6,36 +6,22 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:17:43 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/13 11:34:56 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 16:49:48 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_putnbr(unsigned int n)
 {
-	unsigned int	i;
+	unsigned int	*i; 
 
-	i = 0;
-	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return (10);
-	}
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		n = n * -1;
-	}
 	if (n < 10)
-	{
-		ft_putchar(n + 48);
-		i++;
-	}
+		*i += ft_putchar(n + 48);
 	if (n / 10)
 	{
 		ft_putnbr(n / 10);
 		ft_putnbr(n % 10);
 	}
-	return (i);
+	return (&i);
 }

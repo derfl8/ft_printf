@@ -6,56 +6,52 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:25:00 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/14 14:01:07 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 16:49:43 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static char	format_check(const char *format)
+static int	format_check(const char format, va_list(args))
 {
-	while (*format != '%')
-		format++;
-	format++;
-	if (*format == 'c' || *format == 's' || *format == 'p' || *format == 'd'
-		|| *format == 'i' || *format == 'u' || *format == 'x' || *format == 'X'
-		|| *format == '%')
-		return (*format);
-	else
+	int	len;
+
+	len = 0;
+	if (!format)
 		return (0);
+	else if (format == '%')
+		len += ft_putchar(format);
+	else if (format == 's')
+		len += ft_putstr(va_arg(args, char *));
+	else if (format == 'c')
+		len += ft_putchar(va_arg(args, int));
+	else if (format == 'd' || format == 'i')
+		len += ft_putstr(ft_itoa(va_arg(args, int)));
+	else if (format == 'u')
+		len += ft_putnbr(va_arg(args, unsigned int));
+	return (len);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	char	check;
 	va_list	args;
 	int		len;
+	int		i;
 
 	va_start(args, format);
-	check = format_check(format);
 	len = 0;
-	if (!check)
-		return (0);
-	if (check == '%')
-		len = ft_putchar(check);
-	if (check == 's')
-		len = ft_putstr(va_arg(args, char *));
-	if (check == 'c')
+	i = 0;
+	while(format[i])
 	{
-		if (ft_strlen(va_arg(args, char *)) == 1)
-			len = ft_putchar(*va_arg(args, char *));
-		else
-			return (0);
-	}
-	if (check == 'd')
-		len = ft_putstr(ft_itoa(va_arg(args, int)));
-	if (check == 'i')
-	{
-		if (va_arg(args, int) >= 0)
-			len = ft_putstr(ft_itoa(va_arg(args, int)));
-		else
-			return (0);
+		if(format[i] == '%' && format[i + 1])
+		{
+			len += format_check(format[i + 1], args);
+			i += 2;
+		}
+		ft_putchar(format[i]);
+		i++;
+		len++;
 	}
 	va_end(args);
 	return (len);
@@ -64,8 +60,12 @@ int	ft_printf(const char *format, ...)
 int	main(void)
 {
 	int	test;
+	int t2;
+	char c = 'c';
 
-	test = ft_printf("\nsdfsdfsd%iii", 1);
+	test = ft_printf("\n Test %u T2 \n", -123);
 	printf("\n%d\n", test);
+	t2 = printf("\n Test %u T2 \n", -123);
+	printf("\n%d\n", t2);
 	return (test);
 }
