@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 16:17:43 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/17 17:02:55 by abegou           ###   ########.fr       */
+/*   Created: 2025/11/17 18:34:42 by abegou            #+#    #+#             */
+/*   Updated: 2025/11/17 18:38:01 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(unsigned int n)
+int	ft_putptr(long long int ptr)
 {
-	unsigned int	i;
+	int	len;
 
-	i = 0;
-	if (n / 10)
-		i += ft_putnbr(n / 10);
-	i += ft_putchar((n % 10) + '0');
-	return (i);
+	len = 2;
+	write(1, "0x", 2);
+	len += ft_puthexl(ptr);
+	return (len);
 }

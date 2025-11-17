@@ -10,6 +10,9 @@ ft_putstr.c \
 ft_putnbr.c \
 ft_strlen.c \
 ft_itoa.c \
+ft_puthexl.c \
+ft_puthexh.c \
+ft_putptr.c \
 
 OBJS    = $(SRCS:.c=.o)
 

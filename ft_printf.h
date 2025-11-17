@@ -6,7 +6,7 @@
 /*   By: abegou <abegou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:08:44 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/14 14:13:23 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/17 18:39:37 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ int		ft_putstr(char *s);
 int		ft_putnbr(unsigned int n);
 size_t	ft_strlen(const char *s);
 char	*ft_itoa(int n);
+int		ft_puthexl(int n);
+int		ft_puthexh(int n);
+int		ft_putptr(long long int ptr);
 
 #endif
