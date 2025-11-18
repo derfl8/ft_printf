@@ -6,7 +6,7 @@
 /*   By: abegou <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 11:25:00 by abegou            #+#    #+#             */
-/*   Updated: 2025/11/17 21:09:33 by abegou           ###   ########.fr       */
+/*   Updated: 2025/11/18 16:01:11 by abegou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	format_check(const char format, va_list(args))
 
 	len = 0;
 	if (!format)
-		return (0);
+		return (-1);
 	else if (format == '%')
 		len += ft_putchar(format);
 	else if (format == 's')
@@ -60,6 +60,8 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	len = 0;
 	i = 0;
+	if (!format)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])

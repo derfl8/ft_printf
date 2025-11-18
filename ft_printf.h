@@ -27,6 +27,6 @@ size_t	ft_strlen(const char *s);
 char	*ft_itoa(int n);
 int		ft_puthexl(unsigned int n);
 int		ft_puthexh(unsigned int n);
-int		ft_putptr(unsigned long long ptr);
+int		ft_putptr(void *ptr);
 
 #endif
